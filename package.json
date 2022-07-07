@@ -1,0 +1,19 @@
+{
+  "name": "w3org-test-suite",
+  "version": "1.0.0",
+  "description": "A cypress.io code demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "'$(npm bin)/cypress run open'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/matttrice/w3org-test-suite.git"
+  },
+  "author": "Matt Trice",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/matttrice/w3org-test-suite/issues"
+  },
+  "homepage": "https://github.com/matttrice/w3org-test-suite#readme"
+}
