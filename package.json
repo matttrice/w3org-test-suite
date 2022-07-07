@@ -4,7 +4,7 @@
   "description": "A cypress.io code demo",
   "main": "index.js",
   "scripts": {
-    "test": "'$(npm bin)/cypress run open'"
+    "test": "$(npm bin)/cypress run open"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/matttrice/w3org-test-suite/issues"
   },
-  "homepage": "https://github.com/matttrice/w3org-test-suite#readme"
+  "homepage": "https://github.com/matttrice/w3org-test-suite#readme",
+  "devDependencies": {
+    "cypress": "^10.3.0"
+  }
 }
