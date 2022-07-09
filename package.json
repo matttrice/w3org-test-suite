@@ -2,9 +2,8 @@
   "name": "w3org-test-suite",
   "version": "1.0.0",
   "description": "A cypress.io code demo",
-  "main": "index.js",
   "scripts": {
-    "test": "$(npm bin)/cypress run open"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,8 +16,13 @@
   },
   "homepage": "https://github.com/matttrice/w3org-test-suite#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "axios": "^0.27.2",
+    "babel-jest": "^28.1.2",
     "cypress": "^10.3.0",
+    "jest": "^28.1.2",
     "jsdom": "^20.0.0",
     "typescript": "^4.7.4"
   }

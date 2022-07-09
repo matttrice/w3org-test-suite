@@ -4,7 +4,8 @@ import { getApiLinks } from './util/getApiLinks'
 export default defineConfig({
 
   env:{
-    links : getApiLinks('https://www.w3.org/standards/webdesign/htmlcss')
+
+    links : getApiLinks('https://www.w3.org/standards/webdesign/htmlcss').then(links => links )
   },
   // setupNodeEvents can be defined in either
   // the e2e or component configuration
