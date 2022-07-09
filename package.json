@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "A cypress.io code demo",
   "scripts": {
-    "test": "jest"
-  },
+    "test": "jest",
+    "docker:w3":"./cy-run.sh",
+    "docker:w3:mac":"./cy-run-mac-m1.sh",
+    "cypress:open": "npx cypress open"
+    },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/matttrice/w3org-test-suite.git"
