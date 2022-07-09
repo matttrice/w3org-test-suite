@@ -6,7 +6,7 @@ const { _ } = Cypress
 describe('test w3', () => {
 
     it('can visit all badpage links', () => {
-        cy.visit('https://www.w3.org/standards/badpage', { failOnStatusCode: false })
+        cy.visit('standards/badpage', { failOnStatusCode: false })
         cy.get("a:not([href*='mailto:'])")
             .each($a => {
                 if(!$a.prop('href')) return   
@@ -24,7 +24,7 @@ describe('test w3', () => {
     })
 
     it('can visit all multimodal links', () => {
-        cy.visit('https://www.w3.org/standards/webofdevices/multimodal')
+        cy.visit('standards/webofdevices/multimodal')
         cy.get("a:not([href*='mailto:'])")
             .each($a => {
              if(!$a.prop('href')) return                
@@ -42,7 +42,7 @@ describe('test w3', () => {
     })
 
     it('can visit all htmlcss links', () => {
-        cy.visit('https://www.w3.org/standards/webdesign/htmlcss')
+        cy.visit('standards/webdesign/htmlcss')
         cy.get("a:not([href*='mailto:'])")
             .each($a => {
                 if(!$a.prop('href')) return   
