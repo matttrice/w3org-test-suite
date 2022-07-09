@@ -4,10 +4,10 @@
   "description": "A cypress.io code demo",
   "scripts": {
     "test": "jest",
-    "docker:w3":"./cy-run.sh",
-    "docker:w3:mac":"./cy-run-mac-m1.sh",
+    "docker:w3": "./cy-run.sh",
+    "docker:w3:mac": "./cy-run-mac-m1.sh",
     "cypress:open": "npx cypress open"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/matttrice/w3org-test-suite.git"
@@ -22,6 +22,7 @@
     "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
+    "@types/jest": "^28.1.4",
     "axios": "^0.27.2",
     "babel-jest": "^28.1.2",
     "cypress": "^10.3.0",

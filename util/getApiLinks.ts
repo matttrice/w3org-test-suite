@@ -21,10 +21,11 @@ export function getApiLinks(url: string) {
 
             // extract href to list for later use 
             // @todo use in specs with gleb's cypress-each plugin 
-            links.forEach(a => {
+            for(const url of links){
                 //console.log(a.href)
-                linkObject.push(a.href)
-            })
+                if(url.href)
+                linkObject.push(url.href)
+             }
             return linkObject
         }).catch(error => {
             throw error
