@@ -45,12 +45,12 @@ async function requestLinks(url: string): Promise<string[]> {
 function convertDomToLinks(page, url): string[] {
     
     const links: Array<string>  = []
-    const jsdom = require("jsdom")
+    const jsdom = require('jsdom')
     const { JSDOM } = jsdom
 
     // const dom = new JSDOM(res.data) // this does not filter out css links
     const dom = new JSDOM(page.data, { url: url })
-    const anchors = [...dom.window.document.querySelectorAll('a')]
+    const anchors = [...dom.window.document.querySelectorAll('a:not([href*="mailto:"])')]
     
     // extract href to list for later use 
     // @todo use in specs with gleb's cypress-each plugin 
