@@ -1,25 +1,30 @@
 import 'cypress-each'
 import { apiLinks } from '@fixtures/type/apiLinks'
 
+const { _ } = Cypress
+
 // use preprocessed links with cypress-each  
 // to create a separate test for each selector
 const pages: Array<apiLinks> = Cypress.env('links')
 const page1 = pages[0]
-context(`${page1.name} @ ${page1.url}`, () => {
-    before(()=>{
-        // intercept to visit page but still log 404
-        cy.intercept(page1.url).as('rootPage')
-    })
-    
-    it('can visit page (i.e. 200)', () => {
-        cy.visit(page1.url, { failOnStatusCode: false })
-        cy.wait('@rootPage').its('response.statusCode').should('eq', 200)
-    })
 
-    it.each(page1.links)(`${page1.name} %s is live`, (preproccedLink) => {
-        cy.request({ method: 'GET', url: preproccedLink, failOnStatusCode: false })
-            .then(res => {
-                expect(res.status).to.not.be.within(400, 599, 'Error Code Found')
-            })
+_.each(pages, (currentPage, i) =>
+    context(`${currentPage.name} @ ${currentPage.url}`, () => {
+        before(() => {
+            // intercept to visit page but still log 404
+            cy.intercept(currentPage.url).as('rootPage')
+        })
+
+        it('can visit page (i.e. 200)', () => {
+            cy.visit(currentPage.url, { failOnStatusCode: false })
+            cy.wait('@rootPage').its('response.statusCode').should('eq', 200)
+        })
+
+        it.each(currentPage.links)(`${currentPage.name} %s is live`, (preproccedLink) => {
+            cy.request({ method: 'GET', url: preproccedLink, failOnStatusCode: false })
+                .then(res => {
+                    expect(res.status).to.not.be.within(400, 599, 'Status Code')
+                })
+        })
     })
-})
+)
