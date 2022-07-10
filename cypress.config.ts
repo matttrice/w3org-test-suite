@@ -1,4 +1,5 @@
 import { defineConfig } from 'cypress'
+import { pages } from './cypress/fixtures/config/scrapePages'
 import { getApiLinks } from './util/getApiLinks'
 
 export default defineConfig({
@@ -6,15 +7,11 @@ export default defineConfig({
   // the e2e or component configuration
   e2e: {
     async setupNodeEvents(on, config) {
-      const urls :Array<{name: string, url: string }> = [
-      { name: 'badpage' , url: 'https://www.w3.org/standards/badpage' },
-      { name: 'multimodal', url: 'https://www.w3.org/standards/webofdevices/multimodal' },
-      { name: 'htlmcss', url: 'https://www.w3.org/standards/webdesign/htmlcss'}
-      ]
 
-      const links = await getApiLinks(urls)
-
-      config.env.links = links
+      // dynamically preprocess list of urls to 
+      // use with cypress-each plugin
+      config.env.links = await getApiLinks(pages)
+      
       return config
     },
     baseUrl: 'https://www.w3.org',

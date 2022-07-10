@@ -1,4 +1,5 @@
-import { apiLinks } from './type/apiLinks'
+import { apiLinks } from '../cypress/fixtures/config/type/apiLinks'
+import { scrapePage } from '../cypress/fixtures/config/type/scrapePage'
 
 /**
  * Accepts a list of web pages and returns an array of objects
@@ -6,7 +7,7 @@ import { apiLinks } from './type/apiLinks'
  * @param pages 
  * @returns 
  */
-export async function getApiLinks(pages: Array<{ name: string, url: string }>): Promise<apiLinks[]> {
+export async function getApiLinks(pages: Array<scrapePage>): Promise<apiLinks[]> {
 
     const pageWrapper : Array<apiLinks> = []
 
