@@ -1,42 +1,62 @@
-/**
- * Converts response of provided url to a list of links
- * @param url
- */
-export async function getApiLinks(pages: Array<{ name: string, url: string }>) {
+import { apiLinks } from './type/apiLinks'
 
-    const pageWrapper : Array<{ name: string, url: string, links: Array<string> }> = []
+/**
+ * Accepts a list of web pages and returns an array of objects
+ * containing the url of each link found on each web page
+ * @param pages 
+ * @returns 
+ */
+export async function getApiLinks(pages: Array<{ name: string, url: string }>): Promise<apiLinks[]> {
+
+    const pageWrapper : Array<apiLinks> = []
 
     for (let i = 0; i < pages.length; i++) {
-        const processed = await requestLinks(pages[i].url)
-        pageWrapper.push({ ...pages[i], links: processed })
+        const foundLinks = await requestLinks(pages[i].url)
+        pageWrapper.push({ ...pages[i], links: foundLinks, count: foundLinks.length })
     }
     return pageWrapper
 }
 
-async function requestLinks(url: string) {
-    const jsdom = require("jsdom")
-    const { JSDOM } = jsdom
+/**
+ * Accpets a single url and requests the html and processes the response
+ * @param url 
+ * @returns 
+ */
+async function requestLinks(url: string): Promise<string[]> {
     const axios = require('axios')
 
-    const links: string[] = []
-    // @todo accept list of urls
-    // @todo ignore or convert relative ../
-    // @todo ignore internal page refs #
+    let page = null
     try {
-        const page = await axios.get(url)
-        // const dom = new JSDOM(res.data) // this does not filter out css links
-        const dom = new JSDOM(page.data, { url: url })
-        const anchors = [...dom.window.document.querySelectorAll('a')]
+        // validateStatusFalse because we still want the returned page data for 404
+        page = await axios.get(url, { validateStatus: false })
+        return convertDomToLinks(page, url)
+    } catch (err) {
+        console.log({ name : err.name, error: err.message, url: url } )
+    }
+}
 
-        // extract href to list for later use 
-        // @todo use in specs with gleb's cypress-each plugin 
-        for (const url of anchors) {
-            //console.log(a.href)
-            if (url.href)
-                links.push(url.href)
-        }
-    } catch (error) {
-        console.log({ name:'axios', url: url, error: error.message } )
+/**
+ * Traverses and html response to select and return all anchor links
+ * @param page 
+ * @param url 
+ * @returns 
+ */
+function convertDomToLinks(page, url): string[] {
+    
+    const links: Array<string>  = []
+    const jsdom = require("jsdom")
+    const { JSDOM } = jsdom
+
+    // const dom = new JSDOM(res.data) // this does not filter out css links
+    const dom = new JSDOM(page.data, { url: url })
+    const anchors = [...dom.window.document.querySelectorAll('a')]
+    
+    // extract href to list for later use 
+    // @todo use in specs with gleb's cypress-each plugin 
+    for (const url of anchors) {
+        //console.log(a.href)
+        if (url.href)
+            links.push(url.href)
     }
     return links
 }
