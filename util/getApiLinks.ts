@@ -1,5 +1,5 @@
-import { apiLinks } from '../cypress/fixtures/config/type/apiLinks'
-import { scrapePage } from '../cypress/fixtures/config/type/scrapePage'
+import { apiLinks } from '../cypress/fixtures/type/apiLinks'
+import { scrapePage } from '../cypress/fixtures/type/scrapePage'
 
 /**
  * Accepts a list of web pages and returns an array of objects

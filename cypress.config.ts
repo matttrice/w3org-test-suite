@@ -1,5 +1,5 @@
 import { defineConfig } from 'cypress'
-import { pages } from './cypress/fixtures/config/scrapePages'
+import { pages } from './cypress/fixtures/scrapePages'
 import { getApiLinks } from './util/getApiLinks'
 
 export default defineConfig({

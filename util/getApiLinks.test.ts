@@ -1,4 +1,4 @@
-import { pages } from '../cypress/fixtures/config/scrapePages'
+import { pages } from '../cypress/fixtures/scrapePages'
 import { getApiLinks } from './getApiLinks'
 
 test('gets links from url', () => {
