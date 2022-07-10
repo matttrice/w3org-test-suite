@@ -6,8 +6,14 @@ import { apiLinks } from '@fixtures/type/apiLinks'
 const pages: Array<apiLinks> = Cypress.env('links')
 const page1 = pages[0]
 context(`${page1.name} @ ${page1.url}`, () => {
+    before(()=>{
+        // intercept to visit page but still log 404
+        cy.intercept(page1.url).as('rootPage')
+    })
+    
     it('can visit page (i.e. 200)', () => {
-        cy.visit(page1.url)
+        cy.visit(page1.url, { failOnStatusCode: false })
+        cy.wait('@rootPage').its('response.statusCode').should('eq', 200)
     })
 
     it.each(page1.links)(`${page1.name} %s is live`, (preproccedLink) => {
