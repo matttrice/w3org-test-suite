@@ -3,7 +3,8 @@ import { getApiLinks } from './getApiLinks'
 
 test('gets links from url', () => {
     getApiLinks(pages).then(data => {
-        //console.log(data)
-        expect(data.length).toBeGreaterThan(0)
+       for(const d of data){
+            expect(d.links.length).to.be.greaterThan(0)
+        }
     })
 })
