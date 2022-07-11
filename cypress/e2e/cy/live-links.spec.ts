@@ -23,7 +23,7 @@ describe(`Test live links for: ${Cypress.config('baseUrl')}`, () => {
             it(`Can visit ${currentPage.name} without console errors`, () => {
                 cy.validateNoConsoleErrors(currentPage)
             })
-            // processes all links on page, fails test on first - not great
+            // processes all links on page, fails test on first 404 - not great
             it(`All links are live on: ${currentPage.name}`, () => {
                 cy.visit(currentPage.name, { failOnStatusCode: false })
                 cy.scrapeAndValidateAllPageLinks()

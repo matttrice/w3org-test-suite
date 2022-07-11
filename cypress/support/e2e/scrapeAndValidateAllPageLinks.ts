@@ -5,6 +5,6 @@ Cypress.Commands.add('scrapeAndValidateAllPageLinks', () => {
         .each($a => {
             if (!$a.prop('href'))
                 return;
-            cy.validatePageLink($a.prop('href'));
-        });
-});
+            cy.validatePageLink($a.prop('href'))
+        })
+})
