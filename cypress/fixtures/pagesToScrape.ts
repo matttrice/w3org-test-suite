@@ -1,4 +1,4 @@
-import { scrapePage } from './type/scrapePage';
+import { scrapePage } from './type/scrapePage'
 
 /**
  * List of pages to scrape and friendly name

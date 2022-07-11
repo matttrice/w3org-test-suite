@@ -1,4 +1,4 @@
-import { scrapePage } from './scrapePage';
+import { scrapePage } from './scrapePage'
 /**
  * Defines processed list of scraped links used in preprocess to
  * load to cypress environment before tests run 

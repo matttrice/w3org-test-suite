@@ -1,5 +1,5 @@
 import { defineConfig } from 'cypress'
-import { pages } from './cypress/fixtures/scrapePages'
+import { pages } from './cypress/fixtures/pagesToScrape'
 import { getApiLinks } from './util/getApiLinks'
 
 import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor'
