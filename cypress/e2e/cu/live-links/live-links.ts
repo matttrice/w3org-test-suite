@@ -1,16 +1,15 @@
-import { Given, Then, And } from "@badeball/cypress-cucumber-preprocessor";
-import 'cypress-each'
+import { Given, Then, And } from "@badeball/cypress-cucumber-preprocessor"
 import { apiLinks } from '@fixtures/type/apiLinks'
+const { _ } = Cypress
 
-// setupNodeEvents pre-processed config pagesToScrape 
+// setupNodeEvents pre-processed contains array of links from each page 
 const pages: Array<apiLinks> = Cypress.env('links')
 
 Given('The {string} page exists', function (page: string) {
     cy.then(() => {
-        console.log(page)
-        console.log(JSON.stringify(this.page))
-        this.page = pages.find( ({name}) => name == page)
-
+        // link feature keyword to preprocessed data
+        this.page = pages.find(({ name }) => name == page)
+        // @todo validate url
         expect(this.page.name).to.be.a('string')
 
     })
@@ -24,7 +23,12 @@ And('The console does not have errors', function () {
     cy.validateNoConsoleErrors(this.page)
 })
 
-// processes all links on page, fails test on first 404 - not great
 And('All links on the page are live', function () {
-    cy.scrapeAndValidateAllPageLinks()
+    
+    // @todo each link in own it()
+    // first 404 stops execution - not great
+    // see cypress/cy/live-links-loop.spec.ts for other solution
+    _.each(this.page.links, (link) => {
+            cy.validatePageLink(link)
+    })
 })

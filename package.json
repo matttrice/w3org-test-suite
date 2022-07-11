@@ -5,6 +5,7 @@
   "scripts": {
     "test:unit": "jest",
     "test:all": "npx cypress run --spec \"cypress/e2e/**/*.spec.ts\"",
+    "cucumber:all" : "npx cypress run --spec cypress/e2e/**/*.feature",
     "docker:w3": "./cy-run.sh",
     "docker:w3:mac": "./cy-run-mac-m1.sh",
     "cypress:open": "npx cypress open"
