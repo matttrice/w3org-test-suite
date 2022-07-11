@@ -10,7 +10,7 @@ context('Validate approach to detecting console errors', {
                 url : 'cypress/fixtures/other/console-error.html'})
     })
 
-    it.only('Should detect error with stub', () => {
+    it('Should detect error with stub', () => {
         cy.visit('cypress/fixtures/other/console-error.html', {
             onBeforeLoad(win) {
                 cy.stub(win.console, 'error').as('stubErrorLog')

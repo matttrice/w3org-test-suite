@@ -16,8 +16,8 @@ declare global {
              * Parses current page using cypress to find all non-email links
              * Drawback all requests will be contained in a single it()
              *
-             * Use cy.validatePageLink() in a loop or with cypress-each for
-             * better output
+             * NOTE: Prefer cy.validatePageLink() in a loop or with cypress-each for
+             * since this will process all links in single test and stop for first fail
              *
              * @example cy.scrapeAndValidateAllPageLinks(link)
              */
