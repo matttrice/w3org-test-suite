@@ -1,10 +1,13 @@
-import { pages } from '../cypress/fixtures/scrapePages'
+import { pages } from '../cypress/fixtures/pagesToScrape'
+import { apiLinks } from '../cypress/fixtures/type/apiLinks'
 import { getApiLinks } from './getApiLinks'
 
 test('gets links from url', () => {
-    getApiLinks(pages).then(data => {
-       for(const d of data){
-            expect(d.links.length).to.be.greaterThan(0)
-        }
+    return getApiLinks(pages).then(data => {
+        
+        // ensure config matches expectations
+        expect(data).toHaveLength(3)
+        expect(data instanceof Array<apiLinks> ? true : false).toBe(true)
+
     })
 })
