@@ -6,5 +6,5 @@ import { scrapePage } from './type/scrapePage'
 export const pages :Array<scrapePage> = [
     { name: 'badpage' , url: 'https://www.w3.org/standards/badpage' },
     { name: 'multimodal', url: 'https://www.w3.org/standards/webofdevices/multimodal' },
-    { name: 'htlmcss', url: 'https://www.w3.org/standards/webdesign/htmlcss'}
+    { name: 'htmlcss', url: 'https://www.w3.org/standards/webdesign/htmlcss'}
     ]
