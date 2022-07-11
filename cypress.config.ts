@@ -2,8 +2,8 @@ import { defineConfig } from 'cypress'
 import { pages } from './cypress/fixtures/scrapePages'
 import { getApiLinks } from './util/getApiLinks'
 
-import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor';
-import browserify from '@badeball/cypress-cucumber-preprocessor/browserify';
+import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor'
+import browserify from '@badeball/cypress-cucumber-preprocessor/browserify'
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
@@ -28,7 +28,6 @@ export default defineConfig({
   e2e: {
     baseUrl: 'https://www.w3.org',
     specPattern: ['cypress/e2e/**/*.spec.{js,jsx,ts,tsx}', '**/*.feature'],
-    supportFile: false,
     setupNodeEvents,
   },
 })
