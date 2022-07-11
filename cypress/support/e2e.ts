@@ -14,7 +14,10 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './e2e/scrapeAndValidateAllPageLinks'
+import './e2e/validateNoConsoleErrors'
+import './e2e/validatePageLink'
+import './e2e/validatePageLoad'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
