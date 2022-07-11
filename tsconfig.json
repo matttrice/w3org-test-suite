@@ -1,6 +1,21 @@
 {
   "compilerOptions": {
-      "strict": false
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strict": false,
+    "types": [
+      "jest", "node"
+    ],
   },
-  "exclude": [ "node_modules" ]
+  "lib": [
+    "es5"
+  ],
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "cypress/**/*",
+    "cypress.config.ts"
+  ]
 }

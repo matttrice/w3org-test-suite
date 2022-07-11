@@ -1,14 +1,13 @@
 {
-    "compilerOptions": {
-      "esModuleInterop": true,
-      "moduleResolution": "node",
-      "baseUrl": ".",
-      "paths":{
-        "@fixtures/*":["fixtures/*"]
-      },
-      "target": "es5",
-      "lib": ["es5", "dom"],
-      "types": ["cypress", "node"]
+  "compilerOptions": {
+    "paths": {
+      "@fixtures/*": [
+        "./fixtures/*"
+      ]
     },
-    "include": ["**/*.ts", "../util/type/*.ts"]
-  }
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"]
+  },
+  "include": ["**/*.ts"]
+}
