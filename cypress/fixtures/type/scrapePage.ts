@@ -4,4 +4,5 @@
 export type scrapePage = {
     name: string
     url: string
+    code: number
 }
