@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { pages } from '../../fixtures/pagesToScrape'
+import { pages } from '@fixtures/pagesToScrape'
 const { _ } = Cypress
 
 /**
