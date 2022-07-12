@@ -1,13 +1,14 @@
-import { pages } from '../fixtures/pagesToScrape'
-import { getApiLinks } from '../../util/getApiLinks'
-
-import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor'
-import browserify from '@badeball/cypress-cucumber-preprocessor/browserify'
 
 /**
  * 
  * @type {Cypress.PluginConfig}
  */
+
+import { pages } from '../fixtures/pagesToScrape'
+import { getApiLinks } from '../../util/getApiLinks'
+
+import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor'
+import browserify from '@badeball/cypress-cucumber-preprocessor/browserify'
 
 module.exports = async (on, config)=>{
     await addCucumberPreprocessorPlugin(on, config)
