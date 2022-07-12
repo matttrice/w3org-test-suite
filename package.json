@@ -4,14 +4,9 @@
   "description": "A cypress.io code demo",
   "scripts": {
     "jest:test": "jest",
-    "cy:test": "npx cypress run chrome --spec \"cypress/integration/e2e/**/*.spec.ts\"",
-    "cy:chrome" : "npm run cy:test -- --browser chrome",
-    "cy:firefox" : "npm run cy:test -- --browser firefox",
-    "cucumber:test" : "npx cypress run --spec cypress/integration/e2e/**/*.feature",
-    "cucumber:chrome" : "npm run cucumber:test -- --browser chrome",
-    "cucumber:firefox" : "npm run cucumber:test -- --browser firefox",
-    "docker:w3": "./cy-run.sh",
-    "docker:w3:mac": "docker build -t cypress .",
+    "cypress:test": "npx cypress run x--spec 'cypress/e2e/**/*.spec.ts'",
+    "cucumber:test" : "npx cypress run --spec 'cypress/e2e/**/*.feature'",
+    "docker": "docker build -t cypress .",
     "cypress:open": "npx cypress open"
   },
   "repository": {
@@ -33,7 +28,7 @@
     "@types/jest": "^28.1.4",
     "axios": "^0.27.2",
     "babel-jest": "^28.1.2",
-    "cypress": "^10.3.0",
+    "cypress": "9.7",
     "cypress-each": "^1.11.0",
     "jest": "^28.1.2",
     "jsdom": "^20.0.0",

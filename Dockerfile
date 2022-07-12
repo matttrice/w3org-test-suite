@@ -13,5 +13,6 @@ RUN npm install
 # ensure cypress binary
 RUN npx cypress install
 RUN $(npm bin)/cypress verify
-RUN $(npm bin)/cypress run --browser firefox
-RUN $(npm bin)/cypress run --browser chrome
+
+RUN $(npm bin)/cypress run SPEC_FILES --browser firefox --spec 'cypress/e2e/cucumber/life-links.feature, cypress/e2e/cypress/live-links-loop.spec.ts'
+RUN $(npm bin)/cypress run SPEC_FILES --browser chrome --spec 'cypress/e2e/cucumber/life-links.feature, cypress/e2e/cypress/live-links-loop.spec.ts'
