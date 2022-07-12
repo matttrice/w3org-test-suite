@@ -10,6 +10,8 @@ WORKDIR /app
 COPY . /app
 # execute the tests
 RUN npm install
+# ensure cypress binary
+RUN npx cypress install
 RUN $(npm bin)/cypress verify
 RUN $(npm bin)/cypress run --browser firefox
 RUN $(npm bin)/cypress run --browser chrome
