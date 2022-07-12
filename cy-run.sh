@@ -9,4 +9,4 @@ echo "Running Cypress e2e tests headlessly"
 #  $@           = pass any arguments to this script to the Cypress command
 #                 like "./cy-run.sh --record"
 # set to "cypress run" by default
-docker run -it -v $PWD:/e2e -w /e2e cypress/included:10.3.0
+docker run -it -v $PWD:/e2e -w /e2e cypress/included:9.7.0 $@

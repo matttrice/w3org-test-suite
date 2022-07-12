@@ -4,13 +4,14 @@
   "description": "A cypress.io code demo",
   "scripts": {
     "jest:test": "jest",
-    "cy:test": "npx cypress run chrome --spec \"cypress/e2e/**/*.spec.ts\"",
+    "cy:test": "npx cypress run chrome --spec 'cypress/e2e/**/*.spec.ts'",
     "cy:chrome" : "npm run cy:test -- --browser chrome",
     "cy:firefox" : "npm run cy:test -- --browser firefox",
     "cucumber:test" : "npx cypress run --spec cypress/e2e/**/*.feature",
     "cucumber:chrome" : "npm run cucumber:test -- --browser chrome",
     "cucumber:firefox" : "npm run cucumber:test -- --browser firefox",
-    "docker:w3": "./cy-run.sh",
+    "docker:chrome": "./cy-run.sh --spec 'cypress/e2e/cu*/**/*.feature,cypress/e2e/cy*/live-links-loop.spec.ts' --browser chrome",
+    "docker:firefox": "./cy-run.sh --spec 'cypress/e2e/cu*/**/*.feature,cypress/e2e/cy*/live-links-loop.spec.ts' --browser firefox",
     "docker:w3:mac": "./cy-run-mac-m1.sh",
     "cypress:open": "npx cypress open"
   },
