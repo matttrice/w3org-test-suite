@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "../node_modules",
     "paths": {
       "@fixtures/*": [
-        "fixtures/*"
+        "./fixtures/*"
       ]
     },
     "target": "es5",
