@@ -29,7 +29,7 @@ _.each(pages, (currentPage, i) =>
         // Dynamically generate it() tests with cypress-each, 
         // one test per link instead of failing on the first
         it.each(currentPage.links)
-        (`Link is live: %s on: ${currentPage.name}`, 
+        (`Link %K of ${currentPage.count} is live: %s on: ${currentPage.name}`, 
             (preproccedLink) => {
                 cy.validatePageLink(preproccedLink)
         })
