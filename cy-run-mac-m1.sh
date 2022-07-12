@@ -12,4 +12,4 @@ echo "Running Cypress e2e tests headlessly - on Mac M1 chip"
 #  -w /e2e      = set working directy to /e2e
 #  $@           = pass any arguments to this script to the Cypress command
 #                 like "./cy-run-macm1.sh --record"
-docker run --rm -it --platform linux/amd64 -v $PWD:/e2e -w /e2e cypress/browsers:node14.19.0-chrome100-ff99-edge $@
+docker $ docker run -it --platform linux/amd64 -v $PWD:/e2e -w /e2e cypress/included:10.3.0 $@

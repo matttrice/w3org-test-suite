@@ -11,7 +11,7 @@
     "cucumber:chrome" : "npm run cucumber:test -- --browser chrome",
     "cucumber:firefox" : "npm run cucumber:test -- --browser firefox",
     "docker:w3": "./cy-run.sh",
-    "docker:w3:mac": "./cy-run-mac-m1.sh",
+    "docker:w3:mac": "docker build -t cypress .",
     "cypress:open": "npx cypress open"
   },
   "repository": {
