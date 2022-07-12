@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://www.w3.org",
+    "integrationFolder": "cypress/e2e",
+    "specPattern": "['cypress/integration/e2e/**/*.spec.{js,jsx,ts,tsx}', '**/*.feature']"
+}
