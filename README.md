@@ -41,3 +41,5 @@ Tests the node pre-process function [util/getApiLinks](util/getApiLinks.test.ts)
 # Known Issues
 - Cypress Docker builds not working on Macbook Air M1
   - https://github.com/cypress-io/cypress-docker-images/issues/431
+- Approached used to `spy` on console errors only works for errors after page load `event` so script errors before that go undetected when using [validateNoConsoleErrors](cypress\support\e2e\validateNoConsoleErrors.ts). 
+See [spy-console.spec](cypress\e2e\cypress\spy-console.spec.ts) for investigation.
