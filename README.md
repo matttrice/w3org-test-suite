@@ -1,7 +1,7 @@
 # W3.org Live Links Test Suite using Cypress.io
 This repo presents both `Cucumber` and `Cypress`s tests for validating links and page loads in Chrome and Firefox on docker.
 
-Note: The non-cucumber [cypress test](cypress/e2e/cypress/live-links-loop.spec.ts) variant utilises the `cypress-each` package and a custom pre-process step that generates a static list of [pagesToScrape](cypress/fixtures/pagesToScrape.ts) to create separate `it()` statements for each link found on each page. This helps quantify results by increasing test count from 3 to 147.
+Note: The non-cucumber [cypress test](cypress/e2e/cypress/live-links-loop.spec.ts) variant utilises the `cypress-each` package and a custom pre-process step that generates a typed, static list of [pagesToScrape](cypress/fixtures/pagesToScrape.ts) to create separate `it()` statements for each link found on each page. This helps quantify results by increasing test count from 3 to 147.
 <div align="center">
   <img src="/assets/img/badpage-link-scrape.png"
        width="500px"
