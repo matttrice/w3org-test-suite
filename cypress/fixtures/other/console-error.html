@@ -1,22 +1,28 @@
-
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Stubbing Console</title>
-  </head>
-  <body>
-    <h1>Console Error</h1>
-    <ul>
-      <li>
-        <button id="console-log">Log something</button>
-      </li>
-    </ul>
 
-    <script>
-        setTimeout(() => {
-          console.error("Hello Satoshi!")
-        }, 500)
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Stubbing Console</title>
+</head>
+
+<body>
+  <h1>Console Error</h1>
+  <ul>
+    <li>
+      <button id="btn">Button</button>
+    </li>
+  </ul>
+
+  <script>
+    setTimeout(() => {
+      console.error("Satoshi!")
+    }, 500)
+
+    window.addEventListener('load', function () {
+      console.error("Loaded!")
+    })
+  </script>
+</body>
+
 </html>

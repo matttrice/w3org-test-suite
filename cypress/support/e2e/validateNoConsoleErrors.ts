@@ -1,11 +1,12 @@
 import { scrapePage } from '@fixtures/type/scrapePage'
 
+/**
+ * Catches console errors only after page load
+ * See spy-console.spec.ts for investigation on behavior
+ */
 Cypress.Commands.add('validateNoConsoleErrors', (page: scrapePage) => {
-    cy.visit(page.url, {
-        failOnStatusCode: false,
-        onBeforeLoad(win) {
-            cy.spy(win.console, 'error').as('spyErrorLog')
-        },
+    cy.visit(page.url, { failOnStatusCode: false })
+    cy.get('@consoleSpy').then(consoleSpy => {
+        expect(consoleSpy).to.not.be.called
     })
-    cy.get('@spyErrorLog').should('not.have.been.called')
-});
+})

@@ -19,5 +19,11 @@ import './e2e/validateNoConsoleErrors'
 import './e2e/validatePageLink'
 import './e2e/validatePageLoad'
 
+
+let consoleSpy
+Cypress.on('window:before:load', (win) => {
+    consoleSpy = cy.spy(win.console, "error").as('consoleSpy')
+})
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
